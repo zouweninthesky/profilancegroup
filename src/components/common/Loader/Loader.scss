@@ -1,0 +1,36 @@
+@use "../../../assets/scss/variables.scss" as *;
+@use "../../../assets/scss/mixins.scss" as *;
+
+.lds-dual-ring {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  &:after {
+    content: " ";
+
+    display: block;
+
+    width: 8rem;
+    height: 8rem;
+
+    margin: 2rem;
+
+    border-radius: 50%;
+    border: 0.625rem solid $color-font;
+    border-color: $color-font transparent $color-font transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

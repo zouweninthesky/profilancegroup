@@ -2,6 +2,7 @@ import React from "react";
 import "./NewsList.scss";
 
 import NewsArticle from "./NewsArticle/NewsArticle";
+import Loader from "../../common/Loader/Loader";
 import { useAppSelector } from "../../../app/hooks/redux";
 import { NewsInterface } from "../../../utils/news";
 
@@ -9,6 +10,7 @@ const NewsList = () => {
   const { news, search, showOnlyNotPublished } = useAppSelector(
     (state) => state.news
   );
+  const { loading } = useAppSelector((state) => state.global);
   const { isAdmin } = useAppSelector((state) => state.auth);
 
   const filterNews = (news: NewsInterface[]) => {
@@ -34,19 +36,24 @@ const NewsList = () => {
   const filteredNews = filterNews(news);
 
   return (
-    <ul className="news-list">
-      {news.length ? (
-        filteredNews.map((newsArticle) => {
-          return (
-            <li className="news-list__item" key={newsArticle.id}>
-              <NewsArticle newsArticle={newsArticle} />
-            </li>
-          );
-        })
-      ) : (
-        <p>{search ? "Поиск не дал результатов" : "Пока новостей нет!"}</p>
+    <>
+      {loading && <Loader />}
+      {!loading && (
+        <ul className="news-list">
+          {filteredNews.length ? (
+            filteredNews.map((newsArticle) => {
+              return (
+                <li className="news-list__item" key={newsArticle.id}>
+                  <NewsArticle newsArticle={newsArticle} />
+                </li>
+              );
+            })
+          ) : (
+            <p>{search ? "Поиск не дал результатов" : "Пока новостей нет!"}</p>
+          )}
+        </ul>
       )}
-    </ul>
+    </>
   );
 };
 

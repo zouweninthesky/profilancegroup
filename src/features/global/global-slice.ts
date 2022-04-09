@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import fetchNews from "../news/news-thunks";
 
 interface GlobalState {
   loading: boolean;
@@ -23,14 +24,14 @@ const globalSlice = createSlice({
       state.notification = action.payload;
     },
   },
-  // extraReducers: (builder) => {
-  //   // builder.addCase(fetchContacts.pending, (state) => {
-  //   //   state.loading = true;
-  //   // });
-  //   // builder.addCase(fetchContacts.fulfilled, (state) => {
-  //   //   state.loading = false;
-  //   // });
-  // },
+  extraReducers: (builder) => {
+    builder.addCase(fetchNews.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchNews.fulfilled, (state) => {
+      state.loading = false;
+    });
+  },
 });
 
 export const { modalIdChanged } = globalSlice.actions;

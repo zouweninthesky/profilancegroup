@@ -4,7 +4,10 @@ import NewsList from "./NewsList/NewsList";
 import Search from "./Search/Search";
 import NotPublishedCheckbox from "./NotPublishedCheckbox/NotPublishedCheckbox";
 import { useAppSelector, useAppDispatch } from "../../app/hooks/redux";
+import { modalIdChanged } from "../../features/global/global-slice";
 import fetchNews from "../../features/news/news-thunks";
+import { MODAL_CREATE } from "../../utils/modal-ids";
+import CreateModal from "./CreateModal/CreateModal";
 
 const News = () => {
   const dispatch = useAppDispatch();
@@ -29,18 +32,28 @@ const News = () => {
     }
   }, [modalId]);
 
+  const handleCreate = () => {
+    dispatch(modalIdChanged(MODAL_CREATE));
+  };
+
   return (
-    <main>
-      <section className="container">
-        <h1>Заголовок</h1>
-        <Search />
-        {isAdmin && <NotPublishedCheckbox />}
-      </section>
-      <section className="container">
-        <h2 className="visually-hidden">Список новостей</h2>
-        {news && <NewsList />}
-      </section>
-    </main>
+    <>
+      <main>
+        <section className="container">
+          <h1>Заголовок</h1>
+          <Search />
+          {isAdmin && <NotPublishedCheckbox />}
+          <button type="button" onClick={handleCreate}>
+            Создать новость!
+          </button>
+        </section>
+        <section className="container">
+          <h2 className="visually-hidden">Список новостей</h2>
+          {news && <NewsList />}
+        </section>
+      </main>
+      {modalId === MODAL_CREATE && <CreateModal />}
+    </>
   );
 };
 

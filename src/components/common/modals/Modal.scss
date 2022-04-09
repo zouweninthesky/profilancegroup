@@ -59,6 +59,60 @@
     margin-top: 1rem;
   }
 
+  &__trick {
+    display: grid;
+
+    position: relative;
+
+    & > textarea {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      color: inherit;
+
+      margin: 0;
+      padding: 0;
+
+      resize: none;
+      overflow: hidden;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &::after {
+      font: inherit;
+      content: attr(data-replicated-value) " ";
+
+      white-space: pre-wrap;
+
+      visibility: hidden;
+    }
+
+    & > textarea,
+    &::after {
+      border: 0;
+
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    &:focus-within {
+      &::before {
+        content: "";
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        height: 1px;
+
+        background-color: yellow;
+      }
+    }
+  }
+
   @include vp-mobile {
     display: block;
 
