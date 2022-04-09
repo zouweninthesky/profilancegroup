@@ -6,6 +6,7 @@ import Icon from "../Icon/Icon";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks/redux";
 import { signedOut } from "../../../features/auth/auth-slice";
 import { modalIdChanged } from "../../../features/global/global-slice";
+import { MODAL_LOGIN, MODAL_LOGOUT } from "../../../utils/modal-ids";
 
 const AppHeader = () => {
   const dispatch = useAppDispatch();
@@ -13,8 +14,7 @@ const AppHeader = () => {
   const { userName } = useAppSelector((state) => state.auth);
 
   const handleLogin = () => {
-    if (userName) dispatch(signedOut());
-    else dispatch(modalIdChanged("login"));
+    dispatch(modalIdChanged(userName ? MODAL_LOGOUT : MODAL_LOGIN));
   };
 
   return (

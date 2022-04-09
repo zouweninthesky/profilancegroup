@@ -4,7 +4,7 @@ export interface UserInterface {
   isAdmin: boolean;
 }
 
-export const users: UserInterface[] = [
+const users: UserInterface[] = [
   {
     login: "user",
     password: "pass",
@@ -16,3 +16,5 @@ export const users: UserInterface[] = [
     isAdmin: true,
   },
 ];
+
+export default users;
