@@ -1,0 +1,31 @@
+@use "../../../assets/scss/variables.scss" as *;
+@use "../../../assets/scss/mixins.scss" as *;
+
+.search {
+  display: flex;
+  flex-direction: column;
+
+  width: 30%;
+
+  & input {
+    font-family: inherit;
+    font-size: inherit;
+
+    width: 100%;
+    min-height: 40px;
+
+    padding: 8px 12px;
+
+    border: 1px solid $color-font;
+    border-radius: 0.5rem;
+
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+      outline: none;
+
+      background-color: $color-background-secondary;
+    }
+  }
+}

@@ -1,3 +1,6 @@
+@use "../../../assets/scss/mixins.scss" as *;
+@use "../../../assets/scss/variables.scss" as *;
+
 .header {
   // position: absolute;
   position: relative;
@@ -12,10 +15,46 @@
 
   padding: 8px 20px;
 
+  &__logo-wrapper {
+    min-width: 100px;
+  }
+
+  &__links-wrapper {
+  }
+
+  &__link {
+    font-size: 1.25rem;
+
+    padding: 0.625rem;
+
+    border-radius: 30%;
+
+    @include transition-standard;
+
+    &:hover,
+    &:focus {
+      background-color: $color-background-secondary;
+      box-shadow: 0 0 10px 10px $color-background-secondary;
+    }
+
+    &--active {
+      background-color: transparent;
+
+      cursor: default;
+
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        box-shadow: none;
+      }
+    }
+  }
+
   &__button-wrapper {
-    min-width: 257px;
     display: flex;
     justify-content: flex-end;
+
+    min-width: 100px;
   }
 
   & svg {

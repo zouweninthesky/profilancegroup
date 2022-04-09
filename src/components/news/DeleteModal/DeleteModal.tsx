@@ -1,6 +1,6 @@
 import React, { FormEvent } from "react";
 
-import Modal from "../../common/modal/Modal";
+import Modal from "../../common/Modal/Modal";
 import { useAppDispatch } from "../../../app/hooks/redux";
 import { newsArticleDeleted } from "../../../features/news/news-slice";
 import { modalIdChanged } from "../../../features/global/global-slice";

@@ -58,6 +58,16 @@ a {
   text-decoration: none;
 }
 
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+
+  clip: rect(0 0 0 0);
+}
+
 .button {
   display: flex;
   flex-direction: row;
@@ -70,18 +80,23 @@ a {
   text-align: center;
   color: inherit;
 
+  min-height: 54px;
+
   padding: 0.625rem 1.25rem;
 
   border: 0.0625rem solid $color-font;
   border-radius: 0.5rem;
-  background-color: transparent;
+  background-color: $color-background;
   cursor: pointer;
+
+  @include transition-standard;
 
   &:hover,
   &:focus {
     outline: none;
 
     // border-color: $color-primary-dark;
+    background-color: $color-background-secondary;
   }
 
   &:disabled {
@@ -91,11 +106,17 @@ a {
   &:active {
     @include active-standard;
   }
+
+  &--icon-only {
+    padding: 0.625rem;
+  }
 }
 
 .container {
   width: 100%;
+  max-width: 1640px;
 
+  margin: 0 auto;
   padding: 0 1.25rem;
 }
 

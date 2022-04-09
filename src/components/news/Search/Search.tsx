@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./Search.scss";
 
 import { useAppDispatch, useAppSelector } from "../../../app/hooks/redux";
 import { searchChanged } from "../../../features/news/news-slice";
@@ -17,9 +18,13 @@ const Search = () => {
   };
 
   return (
-    <div>
-      <label htmlFor="">Поиск</label>
-      <input value={searchState} type="text" onChange={handleChange} />
+    <div className="search">
+      <input
+        placeholder="Начните поиск"
+        value={searchState}
+        type="text"
+        onChange={handleChange}
+      />
     </div>
   );
 };

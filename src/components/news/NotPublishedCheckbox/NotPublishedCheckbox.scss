@@ -1,0 +1,58 @@
+@use "../../../assets/scss/variables.scss" as *;
+
+.not-published {
+  position: relative;
+  & input {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  & label {
+    position: relative;
+
+    font-size: 1.25rem;
+
+    padding-left: 1.75rem;
+
+    cursor: pointer;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: 2px;
+      left: 0;
+
+      width: 20px;
+      height: 20px;
+
+      border: 1px solid $color-font;
+      border-radius: 2px;
+    }
+
+    & svg {
+      display: none;
+
+      position: absolute;
+
+      left: -3px;
+      top: -2px;
+    }
+
+    &:hover::before {
+      background-color: $color-background-secondary;
+    }
+  }
+
+  input:checked + label svg {
+    display: block;
+  }
+
+  &--news {
+    // margin-top: 20px;
+    margin-left: 20px;
+  }
+}

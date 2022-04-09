@@ -17,13 +17,30 @@ const AppHeader = () => {
 
   return (
     <header className="header">
-      <NavLink to="/" end>
-        <Icon id="main-logo-lion" width={257} height={48} />
-        <Icon id="main-logo-text" width={257} height={48} />
-      </NavLink>
-      <NavLink to="/news">Новости</NavLink>
+      <div className="header__logo-wrapper">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "header__link header__link--active" : "header__link"
+          }
+          end
+        >
+          <Icon id="main-logo-lion" width={257} height={48} />
+          <Icon id="main-logo-text" width={257} height={48} />
+        </NavLink>
+      </div>
+      <div className="header__links-wrapper">
+        <NavLink
+          to="/news"
+          className={({ isActive }) =>
+            isActive ? "header__link header__link--active" : "header__link"
+          }
+        >
+          Новости
+        </NavLink>
+      </div>
       <div className="header__button-wrapper">
-        <button type="button" onClick={handleLogin}>
+        <button className="button" type="button" onClick={handleLogin}>
           {userName ? "Выйти" : "Войти"}
         </button>
       </div>

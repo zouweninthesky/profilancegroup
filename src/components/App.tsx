@@ -7,7 +7,7 @@ import News from "./news/News";
 import LoginModal from "./common/LoginModal/LoginModal";
 import LogoutModal from "./common/LogoutModal/LogoutModal";
 import Sprite from "../utils/Sprite";
-import Overlay from "./common/modal/Overlay";
+import Overlay from "./common/Modal/Overlay";
 import { useAppSelector } from "../app/hooks/redux";
 import { MODAL_LOGIN, MODAL_LOGOUT } from "../utils/modal-ids";
 

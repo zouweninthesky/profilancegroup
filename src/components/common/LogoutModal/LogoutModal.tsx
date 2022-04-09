@@ -1,5 +1,5 @@
 import React, { FormEvent } from "react";
-import Modal from "../modal/Modal";
+import Modal from "../Modal/Modal";
 
 import { useAppDispatch } from "../../../app/hooks/redux";
 import { signedOut } from "../../../features/auth/auth-slice";

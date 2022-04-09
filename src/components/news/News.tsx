@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "./News.scss";
 
 import NewsList from "./NewsList/NewsList";
 import Search from "./Search/Search";
@@ -25,11 +26,13 @@ const News = () => {
       const scrollY = document.body.style.top;
       document.body.style.position = "";
       document.body.style.top = "";
+      document.body.style.paddingRight = "0";
       window.scrollTo(0, parseInt(scrollY || "0") * -1);
     } else {
       const top = window.scrollY;
       document.body.style.position = "fixed";
       document.body.style.top = `-${top}px`;
+      document.body.style.paddingRight = "17px";
     }
   }, [modalId]);
 
@@ -39,16 +42,22 @@ const News = () => {
 
   return (
     <>
-      <main>
-        <section className="container">
-          <h1>Заголовок</h1>
-          <Search />
-          {isAdmin && <NotPublishedCheckbox />}
-          <button type="button" onClick={handleCreate}>
-            Создать новость!
-          </button>
+      <main className="news">
+        <section className="container news__toolbar">
+          <h1 className="news__header">Новости</h1>
+          <div className="news__tools-wrapper">
+            <Search />
+            {isAdmin && <NotPublishedCheckbox modifier="news" />}
+            <button
+              className="news__create button"
+              type="button"
+              onClick={handleCreate}
+            >
+              Создать новость!
+            </button>
+          </div>
         </section>
-        <section className="container">
+        <section className="container news__news-section">
           <h2 className="visually-hidden">Список новостей</h2>
           {news && <NewsList />}
         </section>

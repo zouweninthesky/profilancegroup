@@ -1,26 +1,20 @@
 @use "../../../assets/scss/mixins.scss" as *;
 
 .news-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  column-gap: 2%;
+  row-gap: 32px;
 
   list-style: none;
   padding-left: 0;
 
   &__item {
-    width: 49%;
-
-    margin-bottom: 20px;
+    min-height: 300px;
   }
 
   @include vp-mobile {
-    flex-direction: block;
-
-    &__item {
-      width: 100%;
-    }
+    display: block;
   }
 }

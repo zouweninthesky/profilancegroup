@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import "./NewsArticle.scss";
 
 import { useAppSelector, useAppDispatch } from "../../../../app/hooks/redux";
 import {
@@ -8,6 +9,7 @@ import {
 import { modalIdChanged } from "../../../../features/global/global-slice";
 import { NewsInterface } from "../../../../utils/news";
 import { MODAL_DELETE } from "../../../../utils/modal-ids";
+import Icon from "../../../common/Icon/Icon";
 
 interface NewsProps {
   newsArticle: NewsInterface;
@@ -31,18 +33,26 @@ const NewsArticle: FC<NewsProps> = ({ newsArticle }) => {
     <article className="news-article">
       <h3 className="news-article__header">{header}</h3>
       <p className="news-article__content">{content}</p>
-      <p className="news-article__date">{date}</p>
+      <p className="news-article__date">Дата публикации: {date}</p>
       {isAdmin && (
-        <>
+        <div className="news-article__buttons-wrapper">
           {!isPublished && (
-            <button type="button" onClick={handlePublish}>
+            <button
+              className="news-article__button button"
+              type="button"
+              onClick={handlePublish}
+            >
               Опубликовать
             </button>
           )}
-          <button type="button" onClick={handleDelete}>
-            Удалить
+          <button
+            className="news-article__button button button--icon-only"
+            type="button"
+            onClick={handleDelete}
+          >
+            <Icon id="trash" width={32} />
           </button>
-        </>
+        </div>
       )}
     </article>
   );
