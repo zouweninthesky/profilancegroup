@@ -1,0 +1,98 @@
+@use "../../../assets/scss/variables.scss" as *;
+@use "../../../assets/scss/mixins.scss" as *;
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  left: 50%;
+  top: 50%;
+
+  width: 27rem;
+  min-height: 24.375rem;
+
+  padding: 2rem;
+
+  background-color: $color-background;
+  border-radius: 1rem;
+  transform: translate(-50%, -50%);
+  z-index: $z-popup;
+
+  @include shadow;
+
+  &__close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+
+    color: inherit;
+
+    padding: 0.25rem;
+
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+
+    &:active {
+      @include active-standard;
+    }
+  }
+
+  &__header {
+    text-align: left;
+
+    margin-bottom: 0.625rem;
+  }
+
+  & .input {
+    width: 70%;
+
+    margin-bottom: 1rem;
+  }
+
+  &__button {
+    width: 70%;
+
+    margin-top: 1rem;
+  }
+
+  @include vp-mobile {
+    display: block;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    border-radius: 0;
+    transform: none;
+
+    &__header {
+      margin-top: 0;
+    }
+
+    &__close {
+      top: 1rem;
+
+      & svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+
+    & .input {
+      width: 100%;
+    }
+
+    &__button {
+      width: 100%;
+    }
+  }
+}

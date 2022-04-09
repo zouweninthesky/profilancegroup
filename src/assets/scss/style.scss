@@ -34,7 +34,7 @@ body {
 }
 
 body {
-  color: $color-neutrals;
+  color: $color-font;
   font-style: normal;
   font-family: "Roboto", "Arial", sans-serif;
   font-weight: 400;
@@ -42,16 +42,15 @@ body {
   width: 100%;
 
   background-color: $color-background;
-  overflow: hidden;
 }
 
 #root {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
 
-  width: 100%;
-  height: 100vh;
+  // width: 100%;
+  // height: 100vh;
 }
 
 a {
@@ -73,7 +72,7 @@ a {
 
   padding: 0.625rem 1.25rem;
 
-  border: 0.0625rem solid $color-primary;
+  border: 0.0625rem solid $color-font;
   border-radius: 0.5rem;
   background-color: transparent;
   cursor: pointer;
@@ -82,7 +81,7 @@ a {
   &:focus {
     outline: none;
 
-    border-color: $color-primary-dark;
+    // border-color: $color-primary-dark;
   }
 
   &:disabled {
@@ -130,7 +129,7 @@ a {
   }
 
   & p {
-    color: $color-danger;
+    // color: $color-danger;
 
     margin-top: 0;
     margin-bottom: 0.5rem;
@@ -146,7 +145,7 @@ a {
 
     padding: 0.25rem 0.5rem;
 
-    border: 0.0625rem solid $color-primary-lighter;
+    // border: 0.0625rem solid $color-primary-lighter;
     border-radius: 0.5rem;
 
     @include transition-standard;
@@ -155,22 +154,20 @@ a {
     &:focus {
       outline: none;
 
-      border-color: $color-primary-dark;
+      // border-color: $color-primary-dark;
     }
   }
 }
 
 @include vp-tablet {
   body {
-    background-color: $color-primary;
-    overflow: auto;
   }
 
-  #root {
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-  }
+  // #root {
+  //   width: 100%;
+  //   height: auto;
+  //   min-height: 100vh;
+  // }
 }
 
 @include vp-mobile {

@@ -1,0 +1,19 @@
+.header {
+  // position: absolute;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  min-height: 64px;
+
+  padding: 8px 20px;
+
+  &__button-wrapper {
+    min-width: 257px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
