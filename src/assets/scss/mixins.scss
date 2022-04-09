@@ -1,0 +1,41 @@
+@use "./variables.scss" as *;
+
+@mixin vp-laptop {
+  @media (max-width: $vp-laptop) {
+    @content;
+  }
+}
+
+@mixin vp-tablet {
+  @media (max-width: $vp-tablet) {
+    @content;
+  }
+}
+
+@mixin vp-mobile {
+  @media (max-width: $vp-mobile) {
+    @content;
+  }
+}
+
+@mixin shadow {
+  box-shadow: 0 0.125rem 1.25rem 0 $color-shadow;
+}
+
+@mixin deep-shadow {
+  box-shadow: 0 0.125rem 2rem 0 $color-overlay;
+}
+
+@mixin disable-standard {
+  cursor: default;
+
+  opacity: 0.3;
+}
+
+@mixin active-standard {
+  opacity: 0.7;
+}
+
+@mixin transition-standard {
+  transition: 300ms;
+}
