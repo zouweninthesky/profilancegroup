@@ -27,6 +27,12 @@ const newsSlice = createSlice({
         (newsPiece) => newsPiece.id !== action.payload
       );
     },
+    newsArticlePublished(state, action: PayloadAction<number>) {
+      const newsPublishedIndex = state.news.findIndex(
+        (newsArticle) => newsArticle.id === action.payload
+      );
+      state.news[newsPublishedIndex].isPublished = true;
+    },
     searchChanged(state, action: PayloadAction<string>) {
       state.search = action.payload;
     },
@@ -48,6 +54,7 @@ const newsSlice = createSlice({
 export const {
   newsArticleCreated,
   newsArticleDeleted,
+  newsArticlePublished,
   searchChanged,
   notPublishedToggled,
 } = newsSlice.actions;
