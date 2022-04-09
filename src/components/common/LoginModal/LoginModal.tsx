@@ -1,5 +1,5 @@
 import React, { FormEvent, useState, useEffect } from "react";
-import Modal from "../modals/Modal";
+import Modal from "../modal/Modal";
 
 import { useAppDispatch } from "../../../app/hooks/redux";
 import { loggedIn, errorOccured } from "../../../features/auth/auth-slice";

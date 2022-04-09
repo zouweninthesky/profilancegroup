@@ -6,12 +6,14 @@ import fetchNews from "./news-thunks";
 interface NewsState {
   news: NewsInterface[];
   search: string;
+  newsArticleToDelete: undefined | number;
   showOnlyNotPublished: boolean;
 }
 
 const initialState: NewsState = {
   news: [],
   search: "",
+  newsArticleToDelete: undefined,
   showOnlyNotPublished: false,
 };
 
@@ -22,9 +24,12 @@ const newsSlice = createSlice({
     newsArticleCreated(state, action: PayloadAction<NewsInterface>) {
       state.news.push(action.payload);
     },
-    newsArticleDeleted(state, action: PayloadAction<number>) {
+    newsArticleChosenToDelete(state, action: PayloadAction<number>) {
+      state.newsArticleToDelete = action.payload;
+    },
+    newsArticleDeleted(state) {
       state.news = state.news.filter(
-        (newsPiece) => newsPiece.id !== action.payload
+        (newsPiece) => newsPiece.id !== state.newsArticleToDelete
       );
     },
     newsArticlePublished(state, action: PayloadAction<number>) {
@@ -53,6 +58,7 @@ const newsSlice = createSlice({
 
 export const {
   newsArticleCreated,
+  newsArticleChosenToDelete,
   newsArticleDeleted,
   newsArticlePublished,
   searchChanged,

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FormEvent } from "react";
 
-import Modal from "../../common/modals/Modal";
+import Modal from "../../common/modal/Modal";
 import { useAppDispatch } from "../../../app/hooks/redux";
 import { newsArticleCreated } from "../../../features/news/news-slice";
 import { modalIdChanged } from "../../../features/global/global-slice";

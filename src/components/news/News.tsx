@@ -3,11 +3,12 @@ import React, { useEffect } from "react";
 import NewsList from "./NewsList/NewsList";
 import Search from "./Search/Search";
 import NotPublishedCheckbox from "./NotPublishedCheckbox/NotPublishedCheckbox";
+import CreateModal from "./CreateModal/CreateModal";
+import DeleteModal from "./DeleteModal/DeleteModal";
 import { useAppSelector, useAppDispatch } from "../../app/hooks/redux";
 import { modalIdChanged } from "../../features/global/global-slice";
 import fetchNews from "../../features/news/news-thunks";
-import { MODAL_CREATE } from "../../utils/modal-ids";
-import CreateModal from "./CreateModal/CreateModal";
+import { MODAL_CREATE, MODAL_DELETE } from "../../utils/modal-ids";
 
 const News = () => {
   const dispatch = useAppDispatch();
@@ -53,6 +54,7 @@ const News = () => {
         </section>
       </main>
       {modalId === MODAL_CREATE && <CreateModal />}
+      {modalId === MODAL_DELETE && <DeleteModal />}
     </>
   );
 };

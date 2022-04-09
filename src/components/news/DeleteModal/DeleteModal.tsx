@@ -1,8 +1,8 @@
 import React, { FormEvent } from "react";
-import Modal from "../modal/Modal";
 
+import Modal from "../../common/modal/Modal";
 import { useAppDispatch } from "../../../app/hooks/redux";
-import { signedOut } from "../../../features/auth/auth-slice";
+import { newsArticleDeleted } from "../../../features/news/news-slice";
 import { modalIdChanged } from "../../../features/global/global-slice";
 
 const LogoutModal = () => {
@@ -14,13 +14,16 @@ const LogoutModal = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    dispatch(signedOut());
+    dispatch(newsArticleDeleted());
     dispatch(modalIdChanged(""));
   };
 
   return (
     <Modal>
-      <h2 className="modal__header">Вы уверены, что хотите выйти?</h2>
+      <h2 className="modal__header">
+        Вы уверены, что хотите удалить эту новость?
+      </h2>
+      <p className="modal__hint">Это действие необратимо</p>
       <form action="" onSubmit={handleSubmit}>
         <button type="button" onClick={handleClose}>
           Я передумал

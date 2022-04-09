@@ -2,10 +2,12 @@ import React, { FC } from "react";
 
 import { useAppSelector, useAppDispatch } from "../../../../app/hooks/redux";
 import {
-  newsArticleDeleted,
+  newsArticleChosenToDelete,
   newsArticlePublished,
 } from "../../../../features/news/news-slice";
+import { modalIdChanged } from "../../../../features/global/global-slice";
 import { NewsInterface } from "../../../../utils/news";
+import { MODAL_DELETE } from "../../../../utils/modal-ids";
 
 interface NewsProps {
   newsArticle: NewsInterface;
@@ -21,7 +23,8 @@ const NewsArticle: FC<NewsProps> = ({ newsArticle }) => {
   };
 
   const handleDelete = () => {
-    dispatch(newsArticleDeleted(id));
+    dispatch(newsArticleChosenToDelete(id));
+    dispatch(modalIdChanged(MODAL_DELETE));
   };
 
   return (
