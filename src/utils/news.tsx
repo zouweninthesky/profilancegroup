@@ -50,11 +50,11 @@ const news: NewsInterface[] = [
     isPublished: true,
   },
   {
-    id: 8976,
+    id: 8176,
     header: "НянЯрядом",
     content: "Профиланс Групп запустила новый проект: НянЯрядом!",
     date: 220022,
-    isPublished: true,
+    isPublished: false,
   },
 ];
 

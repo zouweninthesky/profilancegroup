@@ -1,0 +1,26 @@
+@use "../../../assets/scss/mixins.scss" as *;
+
+.news-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  list-style: none;
+  padding-left: 0;
+
+  &__item {
+    width: 49%;
+
+    margin-bottom: 20px;
+  }
+
+  @include vp-mobile {
+    flex-direction: block;
+
+    &__item {
+      width: 100%;
+    }
+  }
+}

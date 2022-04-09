@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
 
 import NewsList from "./NewsList/NewsList";
+import Search from "./Search/Search";
+import NotPublishedCheckbox from "./NotPublishedCheckbox/NotPublishedCheckbox";
 import { useAppSelector, useAppDispatch } from "../../app/hooks/redux";
 import fetchNews from "../../features/news/news-thunks";
 
 const News = () => {
   const dispatch = useAppDispatch();
+  const { isAdmin } = useAppSelector((state) => state.auth);
   const { news } = useAppSelector((state) => state.news);
   const { modalId } = useAppSelector((state) => state.global);
 
@@ -28,12 +31,12 @@ const News = () => {
 
   return (
     <main>
-      <section>
+      <section className="container">
         <h1>Заголовок</h1>
-        <p>Поиск</p>
-        <p>Чекбокс с неодобренными новостями</p>
+        <Search />
+        {isAdmin && <NotPublishedCheckbox />}
       </section>
-      <section>
+      <section className="container">
         <h2 className="visually-hidden">Список новостей</h2>
         {news && <NewsList />}
       </section>
