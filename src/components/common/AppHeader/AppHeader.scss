@@ -2,7 +2,6 @@
 @use "../../../assets/scss/variables.scss" as *;
 
 .header {
-  // position: absolute;
   position: relative;
 
   display: flex;
@@ -11,12 +10,18 @@
   align-items: center;
 
   width: 100%;
-  min-height: 64px;
+  min-height: 4rem;
 
-  padding: 8px 20px;
+  padding: 0.5rem 1.25rem;
 
   &__logo-wrapper {
     min-width: 100px;
+
+    & svg {
+      position: absolute;
+      left: 1.25rem;
+      top: 0.5rem;
+    }
   }
 
   &__links-wrapper {
@@ -54,12 +59,135 @@
     display: flex;
     justify-content: flex-end;
 
-    min-width: 100px;
+    min-width: 6.25rem;
   }
 
-  & svg {
-    position: absolute;
-    left: 20px;
-    top: 8px;
+  &__menu-button {
+    display: none;
+  }
+
+  @include vp-mobile {
+    &__logo-wrapper {
+      & svg {
+        width: 16.0625rem;
+        height: 3rem;
+      }
+
+      & svg:last-child {
+        display: none;
+      }
+    }
+
+    &__links-wrapper {
+      display: none;
+    }
+
+    &__button-wrapper {
+      display: none;
+    }
+
+    &__menu-button {
+      display: block;
+
+      position: absolute;
+      top: 0.625rem;
+      right: 0.875rem;
+
+      width: 2.5rem;
+      height: 2.5rem;
+
+      padding: 0;
+
+      background-color: transparent;
+      border: 0;
+
+      &::after {
+        content: "";
+
+        position: absolute;
+        top: 0.625rem;
+        left: 0.375rem;
+
+        width: 1.75rem;
+        height: 0.25rem;
+
+        background-color: $color-font;
+
+        box-shadow: 0 0.5rem 0 0 $color-font, 0 1rem 0 0 $color-font;
+      }
+
+      &:hover,
+      &:focus {
+        outline: none;
+      }
+
+      &:active {
+        @include active-standard;
+      }
+    }
+
+    &--opened {
+      height: 100vh;
+
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      & .header {
+        &__logo-wrapper {
+          height: 3rem;
+        }
+
+        &__links-wrapper {
+          display: block;
+
+          width: 100%;
+
+          margin: 1rem 0;
+        }
+
+        &__link {
+          display: block;
+
+          padding: 0.625rem 0;
+        }
+
+        &__button-wrapper {
+          display: block;
+        }
+
+        &__menu-button {
+          &::after,
+          &::before {
+            top: 1.0625rem;
+            left: 0.3125rem;
+
+            width: 2rem;
+            height: 0.25rem;
+
+            box-shadow: none;
+            transform: rotate(-45deg);
+          }
+
+          &::before {
+            content: "";
+
+            position: absolute;
+
+            transform: rotate(45deg);
+            background-color: $color-font;
+          }
+        }
+      }
+
+      & .button {
+        font-size: 1.25rem;
+
+        margin-right: 0;
+        padding: 0.625rem 0;
+
+        border: 0;
+      }
+    }
   }
 }

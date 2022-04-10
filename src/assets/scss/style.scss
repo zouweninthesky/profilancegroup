@@ -152,8 +152,8 @@ a {
   & p {
     // color: $color-danger;
 
-    margin-top: 0;
-    margin-bottom: 0.5rem;
+    // margin-top: 0;
+    // margin-bottom: 0.5rem;
   }
 
   & input {
@@ -180,19 +180,12 @@ a {
   }
 }
 
-@include vp-tablet {
-  body {
-  }
-
-  // #root {
-  //   width: 100%;
-  //   height: auto;
-  //   min-height: 100vh;
-  // }
-}
-
 @include vp-mobile {
   html {
     font-size: 5vw;
+  }
+
+  .container {
+    padding: 0 0.75rem;
   }
 }

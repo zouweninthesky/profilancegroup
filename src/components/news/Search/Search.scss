@@ -12,11 +12,11 @@
     font-size: inherit;
 
     width: 100%;
-    min-height: 40px;
+    min-height: 2.5rem;
 
-    padding: 8px 12px;
+    padding: 0.5rem 0.75rem;
 
-    border: 1px solid $color-font;
+    border: 0.0625rem solid $color-font;
     border-radius: 0.5rem;
 
     background-color: transparent;
@@ -27,5 +27,9 @@
 
       background-color: $color-background-secondary;
     }
+  }
+
+  @include vp-mobile {
+    width: 100%;
   }
 }

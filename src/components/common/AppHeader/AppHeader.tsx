@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./AppHeader.scss";
 
@@ -11,12 +11,22 @@ const AppHeader = () => {
   const dispatch = useAppDispatch();
   const { userName } = useAppSelector((state) => state.auth);
 
+  const [menuOpened, setMenuOpened] = useState(false);
+
   const handleLogin = () => {
     dispatch(modalIdChanged(userName ? MODAL_LOGOUT : MODAL_LOGIN));
   };
 
+  const handleMenuToggle = () => {
+    setMenuOpened((prev) => !prev);
+  };
+
+  const handleMenuClose = () => {
+    setMenuOpened(false);
+  };
+
   return (
-    <header className="header">
+    <header className={menuOpened ? "header header--opened" : "header"}>
       <div className="header__logo-wrapper">
         <NavLink
           to="/"
@@ -24,6 +34,7 @@ const AppHeader = () => {
             isActive ? "header__link header__link--active" : "header__link"
           }
           end
+          onClick={handleMenuClose}
         >
           <Icon id="main-logo-lion" width={257} height={48} />
           <Icon id="main-logo-text" width={257} height={48} />
@@ -35,6 +46,7 @@ const AppHeader = () => {
           className={({ isActive }) =>
             isActive ? "header__link header__link--active" : "header__link"
           }
+          onClick={handleMenuClose}
         >
           Новости
         </NavLink>
@@ -44,6 +56,11 @@ const AppHeader = () => {
           {userName ? "Выйти" : "Войти"}
         </button>
       </div>
+      <button
+        type="button"
+        className="header__menu-button"
+        onClick={handleMenuToggle}
+      ></button>
     </header>
   );
 };

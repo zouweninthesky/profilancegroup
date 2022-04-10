@@ -1,4 +1,5 @@
 @use "../../../assets/scss/variables.scss" as *;
+@use "../../../assets/scss/mixins.scss" as *;
 
 .not-published {
   position: relative;
@@ -23,14 +24,14 @@
       content: "";
 
       position: absolute;
-      top: 2px;
+      top: 0.125rem;
       left: 0;
 
-      width: 20px;
-      height: 20px;
+      width: 1.25rem;
+      height: 1.25rem;
 
-      border: 1px solid $color-font;
-      border-radius: 2px;
+      border: 0.0625rem solid $color-font;
+      border-radius: 0.125rem;
     }
 
     & svg {
@@ -38,8 +39,8 @@
 
       position: absolute;
 
-      left: -3px;
-      top: -2px;
+      left: -0.1875rem;
+      top: -0.125rem;
     }
 
     &:hover::before {
@@ -52,7 +53,25 @@
   }
 
   &--news {
-    // margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 1.25rem;
+  }
+
+  @include vp-mobile {
+    & label {
+      font-size: 1rem;
+
+      &::before {
+        top: -0.125rem;
+      }
+
+      & svg {
+        top: -0.375rem;
+      }
+    }
+
+    &--news {
+      margin-top: 1.25rem;
+      margin-left: 0;
+    }
   }
 }
