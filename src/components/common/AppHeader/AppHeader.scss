@@ -127,11 +127,20 @@
     }
 
     &--opened {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
       height: 100vh;
 
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
+
+      z-index: $z-menu;
+      background-color: $color-background;
 
       & .header {
         &__logo-wrapper {

@@ -1,6 +1,8 @@
 import React, { FC } from "react";
+import dateFormat from "dateformat";
 import "./NewsArticle.scss";
 
+import Icon from "../../../common/Icon/Icon";
 import { useAppSelector, useAppDispatch } from "../../../../app/hooks/redux";
 import {
   newsArticleChosenToDelete,
@@ -9,7 +11,7 @@ import {
 import { modalIdChanged } from "../../../../features/global/global-slice";
 import { NewsInterface } from "../../../../utils/news";
 import { MODAL_DELETE } from "../../../../utils/modal-ids";
-import Icon from "../../../common/Icon/Icon";
+import { MASK_DAY_MONTH_YEAR_DOTS } from "../../../../utils/dateFormatMasks";
 
 interface NewsProps {
   newsArticle: NewsInterface;
@@ -33,7 +35,9 @@ const NewsArticle: FC<NewsProps> = ({ newsArticle }) => {
     <article className="news-article">
       <h3 className="news-article__header">{header}</h3>
       <p className="news-article__content">{content}</p>
-      <p className="news-article__date">Дата публикации: {date}</p>
+      <p className="news-article__date">
+        Дата публикации: {dateFormat(date, MASK_DAY_MONTH_YEAR_DOTS)}
+      </p>
       {isAdmin && (
         <div className="news-article__buttons-wrapper">
           {!isPublished && (

@@ -80,7 +80,7 @@ a {
   text-align: center;
   color: inherit;
 
-  min-height: 54px;
+  min-height: 3.375rem;
 
   padding: 0.625rem 1.25rem;
 
@@ -147,13 +147,6 @@ a {
     margin-bottom: 0.5rem;
 
     cursor: pointer;
-  }
-
-  & p {
-    // color: $color-danger;
-
-    // margin-top: 0;
-    // margin-bottom: 0.5rem;
   }
 
   & input {

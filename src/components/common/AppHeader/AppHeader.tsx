@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./AppHeader.scss";
 
 import Icon from "../Icon/Icon";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks/redux";
 import { modalIdChanged } from "../../../features/global/global-slice";
+import { disableScroll, enableScroll } from "../../../utils/disable-scroll";
 import { MODAL_LOGIN, MODAL_LOGOUT } from "../../../utils/modal-ids";
 
 const AppHeader = () => {
@@ -12,6 +13,11 @@ const AppHeader = () => {
   const { userName } = useAppSelector((state) => state.auth);
 
   const [menuOpened, setMenuOpened] = useState(false);
+
+  useEffect(() => {
+    if (menuOpened) disableScroll();
+    else enableScroll();
+  }, [menuOpened]);
 
   const handleLogin = () => {
     dispatch(modalIdChanged(userName ? MODAL_LOGOUT : MODAL_LOGIN));

@@ -10,6 +10,7 @@ import { useAppSelector, useAppDispatch } from "../../app/hooks/redux";
 import { modalIdChanged } from "../../features/global/global-slice";
 import fetchNews from "../../features/news/news-thunks";
 import { MODAL_CREATE, MODAL_DELETE } from "../../utils/modal-ids";
+import { disableScroll, enableScroll } from "../../utils/disable-scroll";
 
 const News = () => {
   const dispatch = useAppDispatch();
@@ -22,18 +23,8 @@ const News = () => {
   }, [news, dispatch]);
 
   useEffect(() => {
-    if (modalId === "") {
-      const scrollY = document.body.style.top;
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.paddingRight = "0";
-      window.scrollTo(0, parseInt(scrollY || "0") * -1);
-    } else {
-      const top = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${top}px`;
-      document.body.style.paddingRight = "17px";
-    }
+    if (modalId === "") enableScroll();
+    else disableScroll();
   }, [modalId]);
 
   const handleCreate = () => {
@@ -54,7 +45,8 @@ const News = () => {
                 type="button"
                 onClick={handleCreate}
               >
-                Создать новость!
+                <span>Создать новость!</span>
+                <span>+</span>
               </button>
             )}
           </div>

@@ -19,6 +19,10 @@
 
   &__create {
     margin-left: auto;
+
+    & span:last-child {
+      display: none;
+    }
   }
 
   &__news-section {
@@ -35,6 +39,24 @@
       position: fixed;
       right: 1rem;
       bottom: 1rem;
+
+      font-size: 1.5rem;
+
+      width: 3rem;
+      height: 3rem;
+
+      min-height: auto;
+      padding: 0;
+
+      border-radius: 50%;
+
+      & span:first-child {
+        display: none;
+      }
+
+      & span:last-child {
+        display: inline;
+      }
     }
   }
 }
