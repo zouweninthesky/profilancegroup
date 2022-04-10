@@ -35,6 +35,12 @@ const NewsList = () => {
 
   const filteredNews = filterNews(news);
 
+  const noNewsHint = () => {
+    if (search) return "Поиск не дал результатов";
+    if (showOnlyNotPublished) return "Все новости опубликованы!";
+    return "Пока новостей нет!";
+  };
+
   return (
     <>
       {loading && <Loader />}
@@ -49,7 +55,7 @@ const NewsList = () => {
               );
             })
           ) : (
-            <p>{search ? "Поиск не дал результатов" : "Пока новостей нет!"}</p>
+            <p>{noNewsHint()}</p>
           )}
         </ul>
       )}

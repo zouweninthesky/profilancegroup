@@ -25,10 +25,12 @@ const LogoutModal = () => {
       </h2>
       <p className="modal__hint">Это действие необратимо</p>
       <form action="" onSubmit={handleSubmit}>
-        <button type="button" onClick={handleClose}>
+        <button className="button" type="button" onClick={handleClose}>
           Я передумал
         </button>
-        <button type="submit">Подтвердить</button>
+        <button className="button" type="submit">
+          Подтвердить
+        </button>
       </form>
     </Modal>
   );
