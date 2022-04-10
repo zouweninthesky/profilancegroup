@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-// import fetchLogin from "../auth/auth-thunks";
 import { UserInterface } from "../../utils/users";
 
 interface AuthState {

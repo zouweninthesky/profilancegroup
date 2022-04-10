@@ -5,9 +5,6 @@
     font-size: 2rem;
   }
 
-  &__toolbar {
-  }
-
   &__tools-wrapper {
     display: flex;
     flex-direction: row;
@@ -23,9 +20,6 @@
     & span:last-child {
       display: none;
     }
-  }
-
-  &__news-section {
   }
 
   @include vp-mobile {

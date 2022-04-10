@@ -8,10 +8,11 @@
   row-gap: 2rem;
 
   list-style: none;
+
   padding-left: 0;
 
   &__item {
-    min-height: 300px;
+    min-height: 18.75rem;
   }
 
   @include vp-mobile {

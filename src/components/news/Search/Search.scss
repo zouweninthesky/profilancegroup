@@ -18,13 +18,11 @@
 
     border: 0.0625rem solid $color-font;
     border-radius: 0.5rem;
-
     background-color: transparent;
 
     &:hover,
     &:focus {
       outline: none;
-
       background-color: $color-background-secondary;
     }
   }

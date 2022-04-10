@@ -48,13 +48,10 @@
   }
 
   & .input {
-    // width: 70%;
-
     margin-bottom: 1rem;
   }
 
   & .button {
-    // width: 70%;
     width: 100%;
 
     margin-top: 1rem;
@@ -70,9 +67,8 @@
 
   &__trick {
     display: grid;
-    width: 100%;
 
-    // position: relative;
+    width: 100%;
 
     & > textarea {
       font-family: inherit;
@@ -92,8 +88,9 @@
     }
 
     &::after {
-      font: inherit;
       content: attr(data-replicated-value) " ";
+
+      font: inherit;
 
       white-space: pre-wrap;
 

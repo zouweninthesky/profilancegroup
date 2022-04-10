@@ -44,15 +44,6 @@ body {
   background-color: $color-background;
 }
 
-#root {
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-
-  // width: 100%;
-  // height: 100vh;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -94,8 +85,6 @@ a {
   &:hover,
   &:focus {
     outline: none;
-
-    // border-color: $color-primary-dark;
     background-color: $color-background-secondary;
   }
 
