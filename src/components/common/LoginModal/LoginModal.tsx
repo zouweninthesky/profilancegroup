@@ -50,7 +50,11 @@ const LoginModal = () => {
         </div>
         <div className="input">
           <label htmlFor="password">Пароль</label>
-          <input id="password" type="text" onChange={handlePasswordChange} />
+          <input
+            id="password"
+            type="password"
+            onChange={handlePasswordChange}
+          />
         </div>
         {error === ERROR_CREDENTIALS && (
           <p className="modal__error">Неверные данные</p>

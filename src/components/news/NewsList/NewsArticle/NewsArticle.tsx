@@ -33,7 +33,12 @@ const NewsArticle: FC<NewsProps> = ({ newsArticle }) => {
 
   return (
     <article className="news-article">
-      <h3 className="news-article__header">{header}</h3>
+      <h3 className="news-article__header">
+        {header}
+        {!isPublished && (
+          <span className="news-article__hint"> (пока не опубликовано)</span>
+        )}
+      </h3>
       <p className="news-article__content">{content}</p>
       <p className="news-article__date">
         Дата публикации: {dateFormat(date, MASK_DAY_MONTH_YEAR_DOTS)}

@@ -11,12 +11,12 @@ const NewsList = () => {
     (state) => state.news
   );
   const { loading } = useAppSelector((state) => state.global);
-  const { isAdmin } = useAppSelector((state) => state.auth);
+  const { userName } = useAppSelector((state) => state.auth);
 
   const filterNews = (news: NewsInterface[]) => {
     let filteredNews = news;
 
-    if (isAdmin) {
+    if (userName) {
       if (showOnlyNotPublished)
         filteredNews = filteredNews.filter((n) => !n.isPublished);
     } else filteredNews = filteredNews.filter((n) => n.isPublished);
