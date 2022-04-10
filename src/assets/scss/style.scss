@@ -166,7 +166,7 @@ a {
 
     padding: 0.25rem 0.5rem;
 
-    // border: 0.0625rem solid $color-primary-lighter;
+    border: 0.0625rem solid $color-font;
     border-radius: 0.5rem;
 
     @include transition-standard;
@@ -175,7 +175,7 @@ a {
     &:focus {
       outline: none;
 
-      // border-color: $color-primary-dark;
+      border-color: fade-out($color-font, 0.4);
     }
   }
 }

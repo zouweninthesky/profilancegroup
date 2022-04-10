@@ -13,7 +13,7 @@ import { MODAL_CREATE, MODAL_DELETE } from "../../utils/modal-ids";
 
 const News = () => {
   const dispatch = useAppDispatch();
-  const { isAdmin } = useAppSelector((state) => state.auth);
+  const { userName, isAdmin } = useAppSelector((state) => state.auth);
   const { news } = useAppSelector((state) => state.news);
   const { modalId } = useAppSelector((state) => state.global);
 
@@ -48,13 +48,15 @@ const News = () => {
           <div className="news__tools-wrapper">
             <Search />
             {isAdmin && <NotPublishedCheckbox modifier="news" />}
-            <button
-              className="news__create button"
-              type="button"
-              onClick={handleCreate}
-            >
-              Создать новость!
-            </button>
+            {userName && (
+              <button
+                className="news__create button"
+                type="button"
+                onClick={handleCreate}
+              >
+                Создать новость!
+              </button>
+            )}
           </div>
         </section>
         <section className="container news__news-section">

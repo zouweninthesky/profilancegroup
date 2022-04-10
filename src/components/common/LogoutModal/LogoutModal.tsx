@@ -22,10 +22,12 @@ const LogoutModal = () => {
     <Modal>
       <h2 className="modal__header">Вы уверены, что хотите выйти?</h2>
       <form action="" onSubmit={handleSubmit}>
-        <button type="button" onClick={handleClose}>
+        <button className="button" type="button" onClick={handleClose}>
           Я передумал
         </button>
-        <button type="submit">Подтвердить</button>
+        <button className="button" type="submit">
+          Подтвердить
+        </button>
       </form>
     </Modal>
   );

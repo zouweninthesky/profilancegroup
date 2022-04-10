@@ -41,15 +41,15 @@ const LoginModal = () => {
     <Modal>
       <h2 className="modal__header">Войти</h2>
       <form action="" onSubmit={handleSubmit}>
-        <div>
+        <div className="input">
           <label htmlFor="login">Логин</label>
           <input id="login" type="text" onChange={handleLoginChange} />
         </div>
-        <div>
+        <div className="input">
           <label htmlFor="password">Пароль</label>
           <input id="password" type="text" onChange={handlePasswordChange} />
         </div>
-        <button type="submit" disabled={!formValid}>
+        <button className="button" type="submit" disabled={!formValid}>
           Подтвердить
         </button>
       </form>

@@ -41,8 +41,8 @@ const CreateModal = () => {
   return (
     <Modal>
       <h2>Создать новость</h2>
-      <form action="" onSubmit={handleSubmit}>
-        <div>
+      <form className="modal__form" action="" onSubmit={handleSubmit}>
+        <div className="input">
           <label htmlFor="header">Заголовок</label>
           <input
             value={header}
@@ -51,7 +51,7 @@ const CreateModal = () => {
             onChange={handeHeaderChange}
           />
         </div>
-        <div>
+        <div className="input">
           <label htmlFor="content">Содержание</label>
           <div className="modal__trick" data-replicated-value={content}>
             <textarea
@@ -62,7 +62,9 @@ const CreateModal = () => {
             ></textarea>
           </div>
         </div>
-        <button disabled={!formValid}>Создать новость</button>
+        <button className="button" disabled={!formValid}>
+          Создать новость
+        </button>
       </form>
     </Modal>
   );
