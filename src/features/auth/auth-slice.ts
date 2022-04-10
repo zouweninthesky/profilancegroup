@@ -9,8 +9,8 @@ interface AuthState {
 }
 
 const initialState: AuthState = {
-  userName: "admin",
-  isAdmin: true,
+  userName: "",
+  isAdmin: false,
   error: "",
 };
 

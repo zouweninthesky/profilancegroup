@@ -64,6 +64,10 @@
     width: 70%;
   }
 
+  &__error {
+    color: $color-error;
+  }
+
   &__trick {
     display: grid;
     width: 100%;
